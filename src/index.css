@@ -1243,3 +1243,110 @@ button {
     grid-template-columns: 1fr;
   }
 }
+
+/* ========================================
+   QA SECTION
+   ======================================== */
+.qa-section {
+  padding: var(--space-24) 0;
+  background: var(--color-bg);
+}
+
+.qa-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.qa-item {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.qa-item:hover, .qa-item.active {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-md);
+  background: var(--color-bg-card-hover);
+}
+
+.qa-question {
+  width: 100%;
+  text-align: left;
+  padding: var(--space-5) var(--space-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.qa-question h3 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.qa-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qa-icon::before,
+.qa-icon::after {
+  content: '';
+  position: absolute;
+  background-color: var(--color-primary-light);
+  border-radius: 2px;
+  transition: transform var(--transition-base);
+}
+
+.qa-icon::before {
+  width: 2px;
+  height: 16px;
+}
+
+.qa-icon::after {
+  width: 16px;
+  height: 2px;
+}
+
+.qa-item.active .qa-icon::before {
+  transform: rotate(90deg);
+}
+
+.qa-answer-container {
+  overflow: hidden;
+  transition: max-height var(--transition-slow);
+}
+
+.qa-answer {
+  padding: 0 var(--space-6) var(--space-5) var(--space-6);
+  color: var(--color-text-secondary);
+  font-size: var(--text-base);
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .qa-section {
+    padding: var(--space-16) 0;
+  }
+  .qa-question {
+    padding: var(--space-4) var(--space-5);
+  }
+  .qa-answer {
+    padding: 0 var(--space-5) var(--space-4) var(--space-5);
+  }
+}
